@@ -19,9 +19,44 @@
 '
 ' To use, open a part or assembly document and run the macro.
 '
-'   Version   0.1.0
-'   Date      2026-08-07
+'   Version   0.1.3
+'   Date      2026-08-13
 '   Author    James Debono
+'   Licence   MIT - full text below
+'   Source    https://github.com/james-debono/solidworks-apply-colours
+'
+'------------------------------------------------------------------------------
+' CHANGELOG (summary - see CHANGELOG.md for the full history)
+'
+'   0.1.3   Version reported on completion corrected.
+'   0.1.2   Licence and header.
+'   0.1.1   Diagnostics off by default.
+'   0.1.0   Initial release, built on the render material API established by
+'           Remove Body and Component Appearances.
+'
+'------------------------------------------------------------------------------
+' MIT Licence
+' SPDX-License-Identifier: MIT
+'
+' Copyright (c) 2026 James Debono
+'
+' Permission is hereby granted, free of charge, to any person obtaining a copy
+' of this software and associated documentation files (the "Software"), to deal
+' in the Software without restriction, including without limitation the rights
+' to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+' copies of the Software, and to permit persons to whom the Software is
+' furnished to do so, subject to the following conditions:
+'
+' The above copyright notice and this permission notice shall be included in all
+' copies or substantial portions of the Software.
+'
+' THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+' IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+' FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+' AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+' LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+' OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+' SOFTWARE.
 '==============================================================================
 
 Option Explicit
@@ -55,9 +90,14 @@ Option Explicit
 ' however much the macro's name suggests it should - those belong to the part
 ' documents, and editing them would dirty files the user never opened, including
 ' ones shared with other assemblies.
-Const SHOW_DIAGNOSTICS As Boolean = True
+' Turning this on writes one line per appearance to the VBA Immediate window
+' (Ctrl+G in the editor) giving what that appearance was attached to, what was
+' cleared and what was kept, plus a timing breakdown.
+Const SHOW_DIAGNOSTICS As Boolean = False
 
-Const MACRO_VERSION As String = "0.1.0"
+' Must match the Version line in the header block above. build-library.ps1 checks
+' that they agree and fails the build if they drift.
+Const MACRO_VERSION As String = "0.1.3"
 
 Dim swApp As SldWorks.SldWorks
 
