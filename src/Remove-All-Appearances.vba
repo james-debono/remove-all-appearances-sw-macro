@@ -19,15 +19,16 @@
 '
 ' To use, open a part or assembly document and run the macro.
 '
-'   Version   0.1.4
-'   Date      2026-08-20
+'   Version   0.1.5
+'   Date      2026-08-21
 '   Author    James Debono
 '   Licence   MIT - full text below
-'   Source    https://github.com/james-debono/apply-colours-sw-macro
+'   Source    https://github.com/james-debono/remove-all-appearances-sw-macro
 '
 '------------------------------------------------------------------------------
 ' CHANGELOG (summary - see CHANGELOG.md for the full history)
 '
+'   0.1.5   Source URL updated for the repository split.
 '   0.1.4   Source URL updated for the repository rename.
 '   0.1.3   Version reported on completion corrected.
 '   0.1.2   Licence and header.
@@ -98,7 +99,7 @@ Const SHOW_DIAGNOSTICS As Boolean = False
 
 ' Must match the Version line in the header block above. build-library.ps1 checks
 ' that they agree and fails the build if they drift.
-Const MACRO_VERSION As String = "0.1.4"
+Const MACRO_VERSION As String = "0.1.5"
 
 Dim swApp As SldWorks.SldWorks
 
